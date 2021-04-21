@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Verify";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+
+}
+
+
+<script>
+    // self executing function here
+    (function () {
+        alert("Gracias por activar su cuenta. Disfrute de nuestro Blog MVC")
+        document.location.href = "@Url.Content("~/")";
+
+    })();
+</script>

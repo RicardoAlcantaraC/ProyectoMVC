@@ -1,0 +1,64 @@
+﻿@model List<ProyectoMVC.Models.TableViewModels.UserTableViewModel>
+@{
+    ViewBag.Title = "Mi cuenta";
+}
+
+<h2>@ViewBag.Title</h2>
+<!--<div class="row">
+    <div class="col-md-12">
+
+        <input type="button" class="btn btn-primary" onclick="document.location.href='@Url.Content("~/User/Add")'" value="Nuevo"/>
+
+    </div>
+
+</div>
+    -->
+<br>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Edad</th>
+                <th></th>
+            </tr>
+
+            @foreach (var items in Model)
+            {
+                <tr>
+                    <td>@items.Id</td>
+                    <td>@items.Nombre</td>
+                    <td>@items.Email</td>
+                    <td>@items.Edad</td>
+                    <td>
+                        <input type="button" value="Eliminar" class="btn btn-danger" onclick="jsDelete(@items.Id);" />
+                        <input type="button" onclick="document.location.href='@Url.Content("~/User/Edit/"+items.Id)'" value="Editar" class="btn btn-warning" />
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<script>
+    function jsDelete(id) {
+
+        if (confirm("¿Estas seguro de eliminar este usuario?")) {
+
+
+            url ="@Url.Content("~/User/Delete")"+"/" + id;
+
+            $.post(url, function (data) {
+                if (data == "1") {
+                    document.location.href="@Url.Content("~/User/")"
+                } else {
+                    alert("Ocurrió un error :(")
+                }
+            })
+
+        }
+    }
+</script>

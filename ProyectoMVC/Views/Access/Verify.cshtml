@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Verify";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    
+}
+
+
+<script>
+    // self executing function here
+    (function () {
+        alert("Para continuar necesita activar su cuenta. Verifique su correo electrónico")
+        document.location.href = "@Url.Content("~/")";
+
+    })();
+</script>

@@ -1,0 +1,42 @@
+﻿@{
+
+    ViewBag.Title = "Blog MVC";
+}
+@model  List<ProyectoMVC.Models.TableViewModels.ArticleTableViewModel>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="row" style="align-content:center">
+    <h2>Hola @Session["nombre"]</h2>
+    <h4>Puedes compartir tus ideas en los articulos publicados o crear un nuevo artículo</h4>
+</div>
+
+<br> 
+<button type="button" class="btn btn-info" onclick="document.location.href='@Url.Content("~/User/NewArticle")'" data-toggle="modal">Nuevo Artículo</button>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Artículo</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>@item.Id</td>                                      
+            <td align="center" onclick="document.location.href='@Url.Content("~/User/Article/"+item.Id)'"><a>@item.Nombre</a></td>
+        </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

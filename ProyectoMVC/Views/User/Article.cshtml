@@ -1,0 +1,49 @@
+﻿@{
+    List<ProyectoMVC.Models.TableViewModels.ArticleTableViewModel> listaNombre = ViewBag.NombreArticulo;
+    string rutaimg = ViewBag.RutaImagen;
+    string Autor = ViewBag.AutorArticulo;
+    ViewBag.Title = "Blog MVC";
+}
+ 
+
+
+
+<div class="row" style="align-content:center">
+
+    @foreach (var item in listaNombre)
+    {
+
+        <h2>@item.Nombre</h2>
+    }
+
+
+
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>Img</th>
+                <th>Autor</th>
+                <th>Descripción</th>
+            </tr>
+            
+
+            @foreach (var item in listaNombre)
+            {
+        <tr>
+            
+            <td width="260"><img src="@rutaimg@item.Imagen" style="width:250px;height:250px;" /> </td>
+            <td>@Autor</td>
+            <td>@item.Descripcion</td>
+        </tr>
+
+            }
+
+        </table>
+    </div>
+</div>
+
