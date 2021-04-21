@@ -26,7 +26,7 @@ namespace ProyectoMVC.Filters
 
 
                 SmtpClient client = new SmtpClient("smtp.office365.com", 587); //Aquí debes sustituir tu servidor SMTP y el puerto
-                client.Credentials = new NetworkCredential(from, "contratrabajo!");
+                client.Credentials = new NetworkCredential(from, "/*contraseña*/");
                 client.EnableSsl = true;//En caso de que tu servidor de correo no utilice cifrado SSL,poner en false
 
 
